@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "webpack": "webpack",
+    "webpack-dev-server": "webpack-dev-server",
     "debug": "node --inspect-brk ./node_modules/webpack/bin/webpack.js",
+    "start": "npm run webpack-dev-server -- --env.mode development",
     "dev": "npm run webpack -- --env.mode development",
     "prod": "npm run webpack -- --env.mode production"
   },
@@ -35,6 +37,7 @@
     "webpack": "^4.8.0",
     "webpack-bundle-analyzer": "^2.11.1",
     "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.14",
     "webpack-node-externals": "^1.7.2",
     "workbox-webpack-plugin": "^3.2.0"
   },
