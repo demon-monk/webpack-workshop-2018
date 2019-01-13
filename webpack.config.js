@@ -1,3 +1,5 @@
-module.exports = {
-  mode: 'none',
+module.exports = ({ mode }) => {
+  return {
+    mode,
+  };
 };

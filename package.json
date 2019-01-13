@@ -6,8 +6,8 @@
   "scripts": {
     "webpack": "webpack",
     "debug": "node --inspect-brk ./node_modules/webpack/bin/webpack.js",
-    "dev": "npm run webpack -- --mode development",
-    "prod": "npm run webpack -- --mode production"
+    "dev": "npm run webpack -- --env.mode development",
+    "prod": "npm run webpack -- --env.mode production"
   },
   "repository": {
     "type": "git",
