@@ -1,4 +1,4 @@
-const nav = "nav"
-const title = 'title'
+const nav = 'nav';
+const title = 'title';
 
-export {nav, title}
+export { nav, title };
