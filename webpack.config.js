@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = ({ mode }) => {
   return {
@@ -8,10 +9,19 @@ module.exports = ({ mode }) => {
       rules: [
         {
           test: /\.css$/,
-          use: ['style-loader', 'css-loader'],
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+            },
+            'css-loader',
+          ],
         },
       ],
     },
-    plugins: [new HtmlWebpackPlugin(), new webpack.ProgressPlugin()],
+    plugins: [
+      new HtmlWebpackPlugin(),
+      new webpack.ProgressPlugin(),
+      new MiniCssExtractPlugin(),
+    ],
   };
 };

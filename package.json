@@ -7,7 +7,7 @@
     "webpack": "webpack",
     "webpack-dev-server": "webpack-dev-server",
     "debug": "node --inspect-brk ./node_modules/webpack/bin/webpack.js",
-    "start": "npm run webpack-dev-server -- --env.mode development",
+    "start": "npm run webpack-dev-server -- --env.mode development --hot",
     "dev": "npm run webpack -- --env.mode development",
     "prod": "npm run webpack -- --env.mode production"
   },
