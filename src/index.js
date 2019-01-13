@@ -1,7 +1,5 @@
 import { nav } from './nav';
-import { bottom, email } from './foot';
-import sidebar from './sidebar'
-console.log(nav);
-console.log(bottom);
-console.log(email);
-console.log(sidebar)
+import { footer } from './foot';
+
+document.body.appendChild(nav);
+document.body.appendChild(footer);
