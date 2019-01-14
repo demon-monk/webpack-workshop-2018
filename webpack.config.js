@@ -18,8 +18,15 @@ module.exports = ({ mode }) => {
         },
         {
           test: /\.(jpe?g)|(png)/,
-          use: ['url-loader'],
-        }
+          use: [
+            {
+              loader: 'url-loader',
+              options: {
+                limit: 1000,
+              },
+            },
+          ],
+        },
       ],
     },
     plugins: [
