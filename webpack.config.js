@@ -16,6 +16,10 @@ module.exports = ({ mode }) => {
             'css-loader',
           ],
         },
+        {
+          test: /\.(jpe?g)|(png)/,
+          use: ['url-loader'],
+        }
       ],
     },
     plugins: [
