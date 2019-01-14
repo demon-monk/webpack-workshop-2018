@@ -1,38 +1,46 @@
 const webpack = require('webpack');
+const webpackMerge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const loadPresets = require('./build-utils/loadPreset');
 
-module.exports = ({ mode }) => {
-  return {
-    mode,
-    module: {
-      rules: [
-        {
-          test: /\.css$/,
-          use: [
-            {
-              loader: MiniCssExtractPlugin.loader,
-            },
-            'css-loader',
-          ],
-        },
-        {
-          test: /\.(jpe?g)|(png)/,
-          use: [
-            {
-              loader: 'url-loader',
-              options: {
-                limit: 1000,
+console.log(loadPresets({ presets: 'ts' }));
+
+
+module.exports = ({ mode, presets }) => {
+  return webpackMerge(
+    {
+      mode,
+      module: {
+        rules: [
+          {
+            test: /\.css$/,
+            use: [
+              {
+                loader: MiniCssExtractPlugin.loader,
               },
-            },
-          ],
-        },
+              'css-loader',
+            ],
+          },
+          {
+            test: /\.(jpe?g)|(png)/,
+            use: [
+              {
+                loader: 'url-loader',
+                options: {
+                  limit: 1000,
+                },
+              },
+            ],
+          },
+        ],
+      },
+      plugins: [
+        new HtmlWebpackPlugin(),
+        new webpack.ProgressPlugin(),
+        new MiniCssExtractPlugin(),
       ],
     },
-    plugins: [
-      new HtmlWebpackPlugin(),
-      new webpack.ProgressPlugin(),
-      new MiniCssExtractPlugin(),
-    ],
-  };
+    loadPresets({ mode, presets })
+  );
 };
