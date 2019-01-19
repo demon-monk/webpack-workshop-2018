@@ -10,7 +10,9 @@
     "start": "npm run webpack-dev-server -- --env.mode development --hot",
     "dev": "npm run webpack -- --env.mode development",
     "dev:ts": "npm run webpack-dev-server -- --env.presets ts",
+    "prod:ts": "npm run prod -- --env.presets ts",
     "prod": "npm run webpack -- --env.mode production",
+    "prod:compress": "npm run prod:ts -- --env.presets compress",
     "prod:analyze": "npm run prod -- --env.presets analyze"
   },
   "repository": {
@@ -25,6 +27,7 @@
     "@babel/core": "^7.0.0-beta.46",
     "@babel/preset-env": "^7.0.0-beta.46",
     "babel-loader": "^8.0.0-beta",
+    "compression-webpack-plugin": "^2.0.0",
     "css-loader": "^0.28.11",
     "file-loader": "^1.1.11",
     "fork-ts-checker-webpack-plugin": "^0.4.1",
