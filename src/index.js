@@ -1,3 +1,4 @@
+import * as gsap from 'gsap'
 import { nav } from './nav';
 import {foo} from './foo.ts'
 import imgUrl from './icon.jpg';
