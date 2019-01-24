@@ -11,6 +11,7 @@ module.exports = ({ mode, presets }) => {
   return webpackMerge(
     {
       mode,
+      devtool: "source-map",
       module: {
         rules: [
           {
