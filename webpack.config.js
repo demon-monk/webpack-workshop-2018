@@ -10,7 +10,7 @@ console.log(loadPresets({ presets: 'ts' }));
 module.exports = ({ mode, presets }) => {
   return webpackMerge(
     {
-      mode,
+      mode: 'none',
       devtool: "source-map",
       module: {
         rules: [

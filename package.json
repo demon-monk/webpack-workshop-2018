@@ -4,7 +4,7 @@
   "description": "Learning resources for the webpack academy workshop series for 2018",
   "main": "index.js",
   "scripts": {
-    "webpack": "webpack",
+    "webpack": "webpack --env.presets ts",
     "webpack-dev-server": "webpack-dev-server",
     "debug": "node --inspect-brk ./node_modules/webpack/bin/webpack.js",
     "start": "npm run webpack-dev-server -- --env.mode development --env.presets ts --hot",
