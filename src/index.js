@@ -1,11 +1,16 @@
 import { nav } from './nav';
-import { footer } from './foot';
 import {foo} from './foo.ts'
 import imgUrl from './icon.jpg';
 import makeImg from './image';
 
+const getFooter = () => import('./foot')
+
 console.log(foo('test presets'));
 
 document.body.appendChild(nav);
-document.body.appendChild(footer);
+nav.addEventListener('click', () => {
+    getFooter().then(defaultModule => {
+        document.body.appendChild(defaultModule.footer);
+    })
+})
 document.body.appendChild(makeImg(imgUrl));
