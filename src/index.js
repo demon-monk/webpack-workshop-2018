@@ -7,9 +7,15 @@ import makeImg from './image';
 const getFooter = () => import('./foot');
 const getGSAP = () => import('gsap');
 const getUniq = () => import('lodash-es/uniq');
+// can't just provide color here
+// folder path should be provided
+// then webpack will bundle each module in that folder to a seperate bundle
+const setColor = color => import(`./button-styles/${color}`);
 console.log(foo('test presets'));
 
 document.body.appendChild(nav);
+const colors = ['red', 'green', 'blue'];
+let cnt = 0;
 nav.addEventListener('click', () => {
   getFooter().then(defaultModule => {
     document.body.appendChild(defaultModule.footer);
@@ -17,5 +23,9 @@ nav.addEventListener('click', () => {
   getGSAP().then(gsap => {
     console.log(gsap);
   });
+  setColor(colors[cnt % 3]).then(colorModule => {
+    nav.style = colorModule.default;
+  });
+  cnt++;
 });
 document.body.appendChild(makeImg(imgUrl));
