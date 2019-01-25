@@ -4,7 +4,7 @@ import { foo } from './foo.ts';
 import imgUrl from './icon.jpg';
 import makeImg from './image';
 
-const getFooter = () => import('./foot');
+const getFooter = () => import(/* webpackChunkName: "foot" */ './foot');
 const getGSAP = () => import('gsap');
 const getUniq = () => import('lodash-es/uniq');
 // can't just provide color here

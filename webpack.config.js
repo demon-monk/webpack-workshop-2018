@@ -6,12 +6,15 @@ const loadPresets = require('./build-utils/loadPreset');
 
 console.log(loadPresets({ presets: 'ts' }));
 
-
 module.exports = ({ mode, presets }) => {
   return webpackMerge(
     {
-      mode: 'none',
-      devtool: "source-map",
+      mode,
+      devtool: 'source-map',
+      output: {
+        filename: 'bundle.js',
+        chunkFilename: '[name].lazy-chunk.js',
+      },
       module: {
         rules: [
           {
