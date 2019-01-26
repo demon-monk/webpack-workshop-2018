@@ -4,8 +4,7 @@ import { foo } from './foo.ts';
 import imgUrl from './icon.jpg';
 import makeImg from './image';
 
-const getFooter = () => import(/* webpackChunkName: "foot" */ './foot');
-const getGSAP = () => import('gsap');
+const getFooter = () => import(/* webpackChunkName: "foot" , webpackPrefetch: true */ './foot');
 const getUniq = () => import('lodash-es/uniq');
 // can't just provide color here
 // folder path should be provided
@@ -25,9 +24,6 @@ let cnt = 0;
 nav.addEventListener('click', () => {
   getFooter().then(defaultModule => {
     document.body.appendChild(defaultModule.footer);
-  });
-  getGSAP().then(gsap => {
-    console.log(gsap);
   });
   setColor(colors[cnt % 3]).then(colorModule => {
     nav.style = colorModule.default;
