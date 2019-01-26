@@ -9,8 +9,14 @@ const getGSAP = () => import('gsap');
 const getUniq = () => import('lodash-es/uniq');
 // can't just provide color here
 // folder path should be provided
-// then webpack will bundle each module in that folder to a seperate bundle
-const setColor = color => import(`./button-styles/${color}`);
+let setColor
+if (process.env.NODE_ENV === 'development') {
+  setColor = color =>
+    import(/* webpackMode: "lazy-once" */
+    `./button-styles/${color}`);
+} else {
+  setColor = color => import(`./button-styles/${color}`);
+}
 console.log(foo('test presets'));
 
 document.body.appendChild(nav);
